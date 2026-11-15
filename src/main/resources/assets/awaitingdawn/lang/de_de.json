@@ -1,0 +1,22 @@
+{
+    "awaitingdawn.deathMain":  "{player} ist gestorben",
+    "awaitingdawn.deathCountdown":  " (Wiederauferstehung in {days} {day_word})",
+    "awaitingdawn.deathImmortalSuffix":  " (sofortige Wiederauferstehung)",
+    "awaitingdawn.deathTitle":  "DU BIST GESTORBEN !",
+    "awaitingdawn.immortalityAnnouncement":  "TAG DER AUFERSTEHUNG - ALLE SIND UNSTERBLICH",
+    "awaitingdawn.mortalityAnnouncement":  "DER TOD IST ZURÜCK - ALLE SIND STERBLICH",
+    "awaitingdawn.playerResurrected":  "{player} ist auferstanden",
+    "awaitingdawn.individualResurrection":  "AUFERSTEHUNG !",
+    "awaitingdawn.livesRemaining":  "AUFERSTEHUNG ! DU HAST NOCH {lives} {life_word}",
+    "awaitingdawn.noLives":  "KEINE LEBEN MEHR",
+    "awaitingdawn.day.one":  "Tag",
+    "awaitingdawn.day.few":  "Tagen",
+    "awaitingdawn.day.many":  "Tagen",
+    "awaitingdawn.life.one":  "Leben",
+    "awaitingdawn.life.few":  "Leben",
+    "awaitingdawn.life.many":  "Leben",
+    "awaitingdawn.status":  "{player} | Tag {days} | Leben {lives}",
+    "awaitingdawn.debugDisabled":  "Debug-Befehle sind in der Konfiguration deaktiviert",
+    "awaitingdawn.debugDone":  "Debug-Einstellungen übernommen",
+    "awaitingdawn.statusFlags":  " | Unsterblich %s | Nächste Auferstehung %s | Verbleibende Tage %s | Ausstehend %s"
+}

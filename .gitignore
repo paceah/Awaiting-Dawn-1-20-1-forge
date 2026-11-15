@@ -1,0 +1,48 @@
+# Gradle and build output
+.gradle/
+**/build/
+out/
+bin/
+*.class
+
+# Forge and Minecraft development runs
+/run/
+/runs/
+/run-dev/
+/run-server/
+/run-data/
+/logs/
+/crash-reports/
+*.log
+*.log.*
+
+# IDE and editor files
+.idea/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.vscode/
+
+# OS and temporary files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp
+*.swp
+*.swo
+*~
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+
+# Local agent instructions and working notes
+/.agents/
+/AGENTS.md
+/TESTING.md
+
+/src/Main.java

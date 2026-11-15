@@ -1,0 +1,22 @@
+{
+  "awaitingdawn.deathMain": "{player} погиб",
+  "awaitingdawn.deathCountdown": " (возрождение через {days} {day_word})",
+  "awaitingdawn.deathImmortalSuffix": " (возрождение сейчас)",
+  "awaitingdawn.deathTitle": "ВЫ ПОГИБЛИ !",
+  "awaitingdawn.immortalityAnnouncement": "ДЕНЬ ВОСКРЕШЕНИЙ - ВСЕ БЕССМЕРТНЫ",
+  "awaitingdawn.mortalityAnnouncement": "СМЕРТЬ ПРИШЛА - НА ВОСКРЕШЕНИЕ УЙДЁТ ВРЕМЯ",
+  "awaitingdawn.playerResurrected": "{player} воскрес",
+  "awaitingdawn.individualResurrection": "ВОСКРЕСЬЕ !",
+  "awaitingdawn.livesRemaining": "ВОСКРЕСЬЕ ! У ВАС ОСТАЛОСЬ {lives} {life_word}",
+  "awaitingdawn.noLives": "ЖИЗНЕЙ НЕ ОСТАЛОСЬ",
+  "awaitingdawn.day.one": "день",
+  "awaitingdawn.day.few": "дня",
+  "awaitingdawn.day.many": "дней",
+  "awaitingdawn.life.one": "жизнь",
+  "awaitingdawn.life.few": "жизни",
+  "awaitingdawn.life.many": "жизней",
+  "awaitingdawn.status": "{player} | День {days} | Жизни {lives}",
+  "awaitingdawn.debugDisabled": "Команды отладки отключены в конфигурации",
+  "awaitingdawn.debugDone": "Настройки отладки применены",
+  "awaitingdawn.statusFlags": " | Бессмертие %s | Следующее воскрешение %s | Осталось дней %s | Ожидает воскрешения %s"
+}

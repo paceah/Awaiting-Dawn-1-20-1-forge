@@ -1,0 +1,22 @@
+{
+  "awaitingdawn.deathMain": "{player} died",
+  "awaitingdawn.deathCountdown": " (resurrection in {days} {day_word})",
+  "awaitingdawn.deathImmortalSuffix": " (resurrection now)",
+  "awaitingdawn.deathTitle": "YOU DIED !",
+  "awaitingdawn.immortalityAnnouncement": "RESURRECTION DAY - EVERYONE IS IMMORTAL",
+  "awaitingdawn.mortalityAnnouncement": "DEATH HAS RETURNED - ALL PLAYERS ARE MORTAL",
+  "awaitingdawn.playerResurrected": "{player} resurrected",
+  "awaitingdawn.individualResurrection": "RESURRECTION !",
+  "awaitingdawn.livesRemaining": "RESURRECTION ! YOU HAVE {lives} {life_word} LEFT",
+  "awaitingdawn.noLives": "NO LIVES REMAIN",
+  "awaitingdawn.day.one": "day",
+  "awaitingdawn.day.few": "days",
+  "awaitingdawn.day.many": "days",
+  "awaitingdawn.life.one": "life",
+  "awaitingdawn.life.few": "lives",
+  "awaitingdawn.life.many": "lives",
+  "awaitingdawn.status": "{player} | Day {days} | Lives {lives}",
+  "awaitingdawn.debugDisabled": "Debug commands are disabled in the configuration",
+  "awaitingdawn.debugDone": "Debug settings applied",
+  "awaitingdawn.statusFlags": " | Immortal %s | Next resurrection %s | Days remaining %s | Pending %s"
+}

@@ -1,0 +1,8 @@
+{
+  "mortality_return": {
+    "sounds": [{"name": "awaitingdawn:dying", "stream": false}]
+  },
+  "resurrection": {
+    "sounds": [{"name": "awaitingdawn:revive", "stream": false}]
+  }
+}

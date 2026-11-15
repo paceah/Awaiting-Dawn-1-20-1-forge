@@ -1,0 +1,22 @@
+{
+    "awaitingdawn.deathMain":  "{player} morreu",
+    "awaitingdawn.deathCountdown":  " (ressurreição em {days} {day_word})",
+    "awaitingdawn.deathImmortalSuffix":  " (ressurreição imediata)",
+    "awaitingdawn.deathTitle":  "VOCÊ MORREU !",
+    "awaitingdawn.immortalityAnnouncement":  "DIA DA RESSURREIÇÃO - TODOS SÃO IMORTAIS",
+    "awaitingdawn.mortalityAnnouncement":  "A MORTE VOLTOU - TODOS SÃO MORTAIS",
+    "awaitingdawn.playerResurrected":  "{player} ressuscitou",
+    "awaitingdawn.individualResurrection":  "RESSURREIÇÃO !",
+    "awaitingdawn.livesRemaining":  "RESSURREIÇÃO ! VOCÊ TEM {lives} {life_word} RESTANTES",
+    "awaitingdawn.noLives":  "NÃO RESTAM VIDAS",
+    "awaitingdawn.day.one":  "dia",
+    "awaitingdawn.day.few":  "dias",
+    "awaitingdawn.day.many":  "dias",
+    "awaitingdawn.life.one":  "vida",
+    "awaitingdawn.life.few":  "vidas",
+    "awaitingdawn.life.many":  "vidas",
+    "awaitingdawn.status":  "{player} | Dia {days} | Vidas {lives}",
+    "awaitingdawn.debugDisabled":  "Os comandos de depuração estão desativados na configuração",
+    "awaitingdawn.debugDone":  "Configurações de depuração aplicadas",
+    "awaitingdawn.statusFlags":  " | Imortal %s | Próxima ressurreição %s | Dias restantes %s | Pendente %s"
+}

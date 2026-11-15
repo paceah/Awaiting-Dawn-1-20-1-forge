@@ -1,0 +1,22 @@
+{
+    "awaitingdawn.deathMain":  "{player} 사망",
+    "awaitingdawn.deathCountdown":  " ({days}{day_word} 후 부활)",
+    "awaitingdawn.deathImmortalSuffix":  " (즉시 부활)",
+    "awaitingdawn.deathTitle":  "사망했습니다 !",
+    "awaitingdawn.immortalityAnnouncement":  "부활의 날 - 모든 플레이어가 불사 상태입니다",
+    "awaitingdawn.mortalityAnnouncement":  "죽음의 귀환 - 모든 플레이어가 다시 죽을 수 있습니다",
+    "awaitingdawn.playerResurrected":  "{player} 부활",
+    "awaitingdawn.individualResurrection":  "부활 !",
+    "awaitingdawn.livesRemaining":  "부활 ! 남은 목숨 {lives}{life_word}",
+    "awaitingdawn.noLives":  "남은 목숨이 없습니다",
+    "awaitingdawn.day.one":  "일",
+    "awaitingdawn.day.few":  "일",
+    "awaitingdawn.day.many":  "일",
+    "awaitingdawn.life.one":  "개",
+    "awaitingdawn.life.few":  "개",
+    "awaitingdawn.life.many":  "개",
+    "awaitingdawn.status":  "{player} | 날짜 {days} | 목숨 {lives}",
+    "awaitingdawn.debugDisabled":  "설정에서 디버그 명령어가 비활성화되어 있습니다",
+    "awaitingdawn.debugDone":  "디버그 설정이 적용되었습니다",
+    "awaitingdawn.statusFlags":  " | 불사 %s | 다음 부활 %s | 남은 일수 %s | 부활 대기 %s"
+}

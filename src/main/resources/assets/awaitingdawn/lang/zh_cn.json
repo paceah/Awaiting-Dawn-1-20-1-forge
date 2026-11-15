@@ -1,0 +1,22 @@
+{
+    "awaitingdawn.deathMain":  "{player} 死亡了",
+    "awaitingdawn.deathCountdown":  " （{days} {day_word}后复活）",
+    "awaitingdawn.deathImmortalSuffix":  " （立即复活）",
+    "awaitingdawn.deathTitle":  "你死了 !",
+    "awaitingdawn.immortalityAnnouncement":  "复活日 - 所有玩家均不死",
+    "awaitingdawn.mortalityAnnouncement":  "死亡回归 - 所有玩家均可死亡",
+    "awaitingdawn.playerResurrected":  "{player} 复活了",
+    "awaitingdawn.individualResurrection":  "复活 !",
+    "awaitingdawn.livesRemaining":  "复活 ! 你还剩 {lives} {life_word}",
+    "awaitingdawn.noLives":  "没有剩余生命",
+    "awaitingdawn.day.one":  "天",
+    "awaitingdawn.day.few":  "天",
+    "awaitingdawn.day.many":  "天",
+    "awaitingdawn.life.one":  "条生命",
+    "awaitingdawn.life.few":  "条生命",
+    "awaitingdawn.life.many":  "条生命",
+    "awaitingdawn.status":  "{player} | 天数 {days} | 生命 {lives}",
+    "awaitingdawn.debugDisabled":  "配置中已禁用调试命令",
+    "awaitingdawn.debugDone":  "调试设置已应用",
+    "awaitingdawn.statusFlags":  " | 不死 %s | 下次复活 %s | 剩余天数 %s | 等待复活 %s"
+}

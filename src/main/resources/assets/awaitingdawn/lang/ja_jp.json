@@ -1,0 +1,22 @@
+{
+    "awaitingdawn.deathMain":  "{player} は死亡した",
+    "awaitingdawn.deathCountdown":  " （復活まで {days} {day_word}）",
+    "awaitingdawn.deathImmortalSuffix":  " （すぐに復活）",
+    "awaitingdawn.deathTitle":  "死んでしまった !",
+    "awaitingdawn.immortalityAnnouncement":  "復活の日 - 全プレイヤーが不死身",
+    "awaitingdawn.mortalityAnnouncement":  "死の帰還 - 全プレイヤーが再び死ぬようになった",
+    "awaitingdawn.playerResurrected":  "{player} は復活した",
+    "awaitingdawn.individualResurrection":  "復活 !",
+    "awaitingdawn.livesRemaining":  "復活 ! 残り {lives} {life_word}",
+    "awaitingdawn.noLives":  "残りのライフはありません",
+    "awaitingdawn.day.one":  "日",
+    "awaitingdawn.day.few":  "日",
+    "awaitingdawn.day.many":  "日",
+    "awaitingdawn.life.one":  "ライフ",
+    "awaitingdawn.life.few":  "ライフ",
+    "awaitingdawn.life.many":  "ライフ",
+    "awaitingdawn.status":  "{player} | 日数 {days} | ライフ {lives}",
+    "awaitingdawn.debugDisabled":  "設定でデバッグコマンドが無効になっています",
+    "awaitingdawn.debugDone":  "デバッグ設定を適用しました",
+    "awaitingdawn.statusFlags":  " | 不死身 %s | 次の復活 %s | 残り日数 %s | 復活待ち %s"
+}

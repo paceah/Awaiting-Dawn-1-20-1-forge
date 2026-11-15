@@ -1,0 +1,22 @@
+{
+    "awaitingdawn.deathMain":  "{player} est mort",
+    "awaitingdawn.deathCountdown":  " (résurrection dans {days} {day_word})",
+    "awaitingdawn.deathImmortalSuffix":  " (résurrection immédiate)",
+    "awaitingdawn.deathTitle":  "VOUS ÊTES MORT !",
+    "awaitingdawn.immortalityAnnouncement":  "JOUR DE RÉSURRECTION - TOUS SONT IMMORTELS",
+    "awaitingdawn.mortalityAnnouncement":  "LA MORT EST REVENUE - TOUS SONT MORTELS",
+    "awaitingdawn.playerResurrected":  "{player} est ressuscité",
+    "awaitingdawn.individualResurrection":  "RÉSURRECTION !",
+    "awaitingdawn.livesRemaining":  "RÉSURRECTION ! IL VOUS RESTE {lives} {life_word}",
+    "awaitingdawn.noLives":  "PLUS AUCUNE VIE",
+    "awaitingdawn.day.one":  "jour",
+    "awaitingdawn.day.few":  "jours",
+    "awaitingdawn.day.many":  "jours",
+    "awaitingdawn.life.one":  "vie",
+    "awaitingdawn.life.few":  "vies",
+    "awaitingdawn.life.many":  "vies",
+    "awaitingdawn.status":  "{player} | Jour {days} | Vies {lives}",
+    "awaitingdawn.debugDisabled":  "Les commandes de débogage sont désactivées dans la configuration",
+    "awaitingdawn.debugDone":  "Paramètres de débogage appliqués",
+    "awaitingdawn.statusFlags":  " | Immortel %s | Prochaine résurrection %s | Jours restants %s | En attente %s"
+}
