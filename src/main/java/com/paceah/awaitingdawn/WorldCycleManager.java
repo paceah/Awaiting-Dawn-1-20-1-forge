@@ -14,14 +14,15 @@ public final class WorldCycleManager {
     public static void reconcile(MinecraftServer server) {
         PlayerDeathStateStore store=PlayerDeathStateStore.get(server);
         long d=day(server), old=store.observedDay;
-        if(d==old) return;
         int interval=AwaitingDawnServerConfig.INTERVAL.get();
+        boolean wasImmortal=CalendarRules.immortal(old,store.observedInterval);
+        if(d==old && interval==store.observedInterval) return;
         CycleStateTransitions.advance(store,d,interval,AwaitingDawnServerConfig.LIVES.get(),AwaitingDawnServerConfig.MAX_LIVES.get());
         boolean immortal=CalendarRules.immortal(d,interval);
         if(immortal && store.immortalAnnouncements.add(d)) {
             if(AwaitingDawnServerConfig.IMMORTAL_MESSAGE.get()) LocalizedMessages.broadcast(server,"immortalityAnnouncement","");
             if(AwaitingDawnServerConfig.RESURRECTION_SOUND.get()) sound(server,ModSounds.RESURRECTION.get());
-        } else if(d>old && !immortal && d>1 && CalendarRules.immortal(d-1,interval) && store.mortalAnnouncements.add(d)) {
+        } else if(!immortal && ((d==old && wasImmortal) || d>old && d>1 && CalendarRules.immortal(d-1,interval)) && store.mortalAnnouncements.add(d)) {
             if(AwaitingDawnServerConfig.MORTAL_MESSAGE.get()) LocalizedMessages.broadcast(server,"mortalityAnnouncement","");
             if(AwaitingDawnServerConfig.MORTAL_SOUND.get()) sound(server,ModSounds.MORTALITY.get());
         }
@@ -41,6 +42,11 @@ public final class WorldCycleManager {
     @SubscribeEvent public static void tick(TickEvent.ServerTickEvent event) {
         if(event.phase!=TickEvent.Phase.END) return;
         reconcile(event.getServer());
+        // Run after the respawn packet finishes: hardcore sets Spectator after PlayerRespawnEvent.
+        for(ServerPlayer p:new ArrayList<>(event.getServer().getPlayerList().getPlayers())) {
+            var r=PlayerDeathStateStore.get(event.getServer()).record(p.getUUID());
+            if(r.transition && !p.isDeadOrDying()) DeathAndRespawnHandler.complete(p);
+        }
         // Bounded retry handles temporarily unavailable destinations without per-tick teleport loops.
         if(event.getServer().getTickCount()%100==0) reconcileOnline(event.getServer());
     }

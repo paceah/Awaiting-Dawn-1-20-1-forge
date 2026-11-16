@@ -24,6 +24,7 @@ public final class RulesTest {
         for(int n:new int[]{0,5,11,12,14,111}) check(Pluralization.form(true,n).equals("many"));
         check(Pluralization.form(false,1).equals("one")); check(Pluralization.form(false,21).equals("many"));
         stateTests();
+        intervalReloadTests();
         check(LocalizedMessages.resurrectionCategory(true,true).equals("individualResurrection"));
         check(LocalizedMessages.resurrectionCategory(true,false).equals("livesRemaining"));
         check(LocalizedMessages.resurrectionCategory(false,true).equals("individualResurrection"));
@@ -63,6 +64,54 @@ public final class RulesTest {
             } catch(java.io.IOException e) { throw new AssertionError(e); }
         }
         System.out.println("Passed "+checks+" calendar, pluralization and persisted-state assertions");
+    }
+    private static void intervalReloadTests() {
+        var store=new PlayerDeathStateStore();
+        var id=java.util.UUID.randomUUID();
+        var r=store.record(id);
+        r.pending=true; r.deathDay=2; r.nextDay=10; r.lives=0;
+        CycleStateTransitions.advance(store,5,10,true,3);
+        check(!r.eligible);
+        // A reload on the same day must release players under the new schedule.
+        CycleStateTransitions.advance(store,5,5,true,3);
+        check(r.eligible && r.nextDay==5 && store.observedInterval==5);
+        r.lives=1;
+        CycleStateTransitions.advance(store,5,5,true,3);
+        check(r.lives==1);
+        CycleStateTransitions.advance(store,3,20,true,3);
+        check(r.eligible && r.nextDay==5);
+        var restored=PlayerDeathStateStore.load(store.save(new net.minecraft.nbt.CompoundTag()));
+        check(restored.observedInterval==20 && restored.record(id).deathDay==2);
+        check(restored.record(id).eligible);
+
+        var extended=new PlayerDeathStateStore();
+        var waiting=extended.record(java.util.UUID.randomUUID());
+        waiting.pending=true; waiting.deathDay=2; waiting.nextDay=10;
+        CycleStateTransitions.advance(extended,3,10,false,3);
+        CycleStateTransitions.advance(extended,3,20,false,3);
+        check(!waiting.eligible && waiting.nextDay==20);
+        CycleStateTransitions.advance(extended,10,20,false,3);
+        check(!waiting.eligible);
+        CycleStateTransitions.advance(extended,20,20,false,3);
+        check(waiting.eligible);
+
+        // Legacy state lacks both the interval and death day fields.
+        var legacyTag=new net.minecraft.nbt.CompoundTag();
+        var list=new net.minecraft.nbt.ListTag();
+        var old=waiting.save(id);
+        old.remove("DeathDay"); old.putBoolean("Eligible",false); old.putLong("NextDay",10);
+        list.add(old); legacyTag.put("Players",list); legacyTag.putLong("ObservedDay",5);
+        var legacy=PlayerDeathStateStore.load(legacyTag);
+        CycleStateTransitions.advance(legacy,5,5,false,3);
+        check(legacy.record(id).eligible && legacy.record(id).nextDay==5);
+
+        // Changing schedules repeatedly cannot refill a previously awarded milestone.
+        var living=extended.record(java.util.UUID.randomUUID());
+        living.refresh=20; living.lives=1;
+        CycleStateTransitions.advance(extended,20,10,true,3);
+        check(living.lives==1);
+        CycleStateTransitions.advance(extended,20,20,true,3);
+        check(living.lives==1);
     }
     private static void runConfigTest() {
         try {

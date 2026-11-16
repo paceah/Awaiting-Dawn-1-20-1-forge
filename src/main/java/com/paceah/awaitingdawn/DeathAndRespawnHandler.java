@@ -29,7 +29,7 @@ public final class DeathAndRespawnHandler {
             if(!immortal) {
                 if(AwaitingDawnServerConfig.LIVES.get()) r.lives=Math.max(0,r.lives-1);
                 if(!AwaitingDawnServerConfig.LIVES.get() || r.lives==0) {
-                    r.pending=true; r.eligible=false; r.spectatorTransition=true; r.nextDay=CalendarRules.next(d,AwaitingDawnServerConfig.INTERVAL.get());
+                    r.pending=true; r.eligible=false; r.spectatorTransition=true; r.deathDay=d; r.nextDay=CalendarRules.next(d,AwaitingDawnServerConfig.INTERVAL.get());
                 }
             }
         }
@@ -39,11 +39,16 @@ public final class DeathAndRespawnHandler {
     }
     @SubscribeEvent public static void respawn(PlayerEvent.PlayerRespawnEvent event) {
         if(event.isEndConquered() || !(event.getEntity() instanceof ServerPlayer p)) return;
-        complete(p);
+        if(!p.server.isHardcore()) complete(p);
     }
     static void complete(ServerPlayer p) {
         var store=PlayerDeathStateStore.get(p.server); var r=store.record(p.getUUID());
         if(!r.transition) return;
+        // Restore only a tracked death, so manually assigned spectators remain untouched.
+        if(!r.pending && p.isSpectator()) {
+            p.setGameMode(r.preMode);
+            if(p.isSpectator()) return;
+        }
         if(r.spectatorTransition && !r.eligible) {
             p.setGameMode(GameType.SPECTATOR);
             if(!p.isSpectator()) return;
@@ -69,8 +74,14 @@ public final class DeathAndRespawnHandler {
     private static boolean placeAtDeath(ServerPlayer p,PlayerDeathStateStore.Record r) {
         ResourceLocation id=ResourceLocation.tryParse(r.dimension);
         ServerLevel level=id==null?null:p.server.getLevel(ResourceKey.create(Registries.DIMENSION,id));
-        if(level==null) return false;
         BlockPos pos=BlockPos.of(r.deathPos);
+        if(level==null) {
+            // A removed dimension must not leave a persistent transition stuck forever.
+            // This destination is for a spectator; normal resurrection still uses safe spawn resolution.
+            level=p.server.overworld();
+            pos=level.getWorldBorder().clampToBounds(level.getSharedSpawnPos().getX(),level.getSharedSpawnPos().getY(),level.getSharedSpawnPos().getZ());
+            pos=new BlockPos(pos.getX(),Math.max(level.getMinBuildHeight(),Math.min(level.getMaxBuildHeight()-2,pos.getY())),pos.getZ());
+        }
         p.teleportTo(level,pos.getX()+.5,pos.getY(),pos.getZ()+.5,p.getYRot(),p.getXRot());
         return true;
     }
